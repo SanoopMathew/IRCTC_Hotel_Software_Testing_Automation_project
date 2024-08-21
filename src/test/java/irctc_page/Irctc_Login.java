@@ -1,5 +1,10 @@
 package irctc_page;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,7 +36,7 @@ public class Irctc_Login
 		{
 			System.out.println("Logo not displayed");
 		}
-		//LogIn button text varification
+		//LogIn button text verification
 		String actsearchbtntxt=driver.findElement(homeloginbtn).getText();
 		String expsearchbtntxt="login";
 		if(actsearchbtntxt.equalsIgnoreCase(expsearchbtntxt))
@@ -43,15 +48,28 @@ public class Irctc_Login
 			System.out.println("LogIn button text not verified");
 		}
 	}
-	
-	public void login(String usrname,String pass) throws InterruptedException
+	//Data driven test 
+	public void login() throws IOException, InterruptedException
 	{
 		driver.findElement(homeloginbtn).click();
-		Thread.sleep(2000);
-		driver.findElement(username).sendKeys("username");
-		driver.findElement(password).sendKeys("pass");
-		driver.findElement(loginbtn).click();
+		Thread.sleep(4000);
+		FileInputStream ob= new FileInputStream("C:\\Users\\sanoo\\OneDrive\\Desktop\\temp\\Luminar\\WrksTestng//DataDriven.xlsx");
+		XSSFWorkbook wb=new XSSFWorkbook(ob);
+		XSSFSheet sh= wb.getSheet("Sheet1");
+		int rowcount=sh.getLastRowNum();
+		for(int i=1;i<=rowcount;i++)
+		{
+			String usrname=sh.getRow(i).getCell(0).getStringCellValue();
+			String pasword=sh.getRow(i).getCell(1).getStringCellValue();
+			System.out.println("User"+usrname);
+			System.out.println("password "+pasword);
+			driver.findElement(username).clear();
+			driver.findElement(username).sendKeys(usrname);
+			driver.findElement(password).clear();
+			driver.findElement(password).sendKeys(pasword);
+			driver.findElement(loginbtn).click();
+			Thread.sleep(5000);			
+		}
 	}
-	
 
 }
