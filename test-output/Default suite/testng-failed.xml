@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="irctc_test.Irctc_Login_Test">
+      <class name="irctc_test.Irctc_SignUp_test">
         <methods>
-          <include name="test3"/>
-          <include name="close"/>
           <include name="setup"/>
+          <include name="close"/>
+          <include name="test1"/>
         </methods>
-      </class> <!-- irctc_test.Irctc_Login_Test -->
+      </class> <!-- irctc_test.Irctc_SignUp_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

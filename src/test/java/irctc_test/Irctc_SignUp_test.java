@@ -11,7 +11,7 @@ public class Irctc_SignUp_test extends Irctc_baseclass
 	public void test1() throws InterruptedException
 	{
 		Irctc_SignUp log=new Irctc_SignUp(driver);
-		log.login();
+		log.signup();
 	}
 	@AfterTest
 	public void close()

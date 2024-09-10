@@ -10,13 +10,6 @@
           <include name="test1"/>
         </methods>
       </class> <!-- irctc_test.Irctc_SignUp_test -->
-      <class name="irctc_test.Irctc_Login_Test">
-        <methods>
-          <include name="test3"/>
-          <include name="close"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- irctc_test.Irctc_Login_Test -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
